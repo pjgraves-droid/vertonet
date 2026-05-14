@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertonet — AI Software Engineering for Australia</title>
+    <meta
+      name="description"
+      content="Vertonet brings world-class AI Software Engineering to the Australian market. Official Cognition partner delivering Devin, the AI software engineer, to enterprise teams across Australia and New Zealand."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #000;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+      }
+
+      .display {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      /* ─── Header ─── */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      nav { display: flex; align-items: center; gap: 2.5rem; }
+
+      nav a {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      nav a:hover { color: #fff; }
+
+      .btn-get-started {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.625rem 1.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+
+      .btn-get-started:hover { border-color: #fff; }
+
+      /* ─── Hero ─── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 0 2rem;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+          radial-gradient(ellipse at 20% 80%, rgba(40, 100, 255, 0.04) 0%, transparent 40%);
+        pointer-events: none;
+      }
+
+      .hero-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 2rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.5rem, 10vw, 8rem);
+        line-height: 0.95;
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-sub {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 520px;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 1rem 3rem;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+      .hero-cta:hover { background: #fff; color: #000; }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .scroll-line {
+        width: 1px;
+        height: 48px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      }
+
+      /* ─── Sections ─── */
+      .section {
+        padding: 8rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .section-label {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        margin-bottom: 2rem;
+      }
+
+      .section-body {
+        font-size: 1.0625rem;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 560px;
+        line-height: 1.7;
+      }
+
+      /* ─── Value Grid ─── */
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        margin-top: 4rem;
+      }
+
+      .value-card {
+        background: #000;
+        padding: 3rem 2.5rem;
+      }
+
+      .value-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .value-card p {
+        font-size: 0.9375rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.65;
+      }
+
+      .value-number {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0.08);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.05em;
+      }
+
+      /* ─── Services ─── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        margin-top: 4rem;
+      }
+
+      .service-card {
+        background: #000;
+        padding: 3rem 2.5rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.375rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .service-card p {
+        font-size: 0.9375rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .service-list li {
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.35);
+        padding-left: 1rem;
+        position: relative;
+      }
+
+      .service-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* ─── Partnership ─── */
+      .partnership-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        margin-top: 4rem;
+      }
+
+      .partnership-features {
+        list-style: none;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .partnership-features li {
+        font-size: 0.9375rem;
+        color: rgba(255, 255, 255, 0.5);
+        padding-left: 2rem;
+        position: relative;
+      }
+
+      .partnership-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      .devin-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 3rem;
+      }
+
+      .devin-card-label {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: 1rem;
+      }
+
+      .devin-card h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .devin-card .subtitle {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 1.5rem;
+      }
+
+      .devin-card p {
+        font-size: 0.9375rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.7;
+      }
+
+      /* ─── Stats ─── */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        margin-top: 4rem;
+      }
+
+      .stat-card {
+        background: #000;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .stat-value {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.8125rem;
+        color: rgba(255, 255, 255, 0.3);
+        line-height: 1.5;
+      }
+
+      /* ─── CTA ─── */
+      .cta {
+        padding: 10rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .cta h2 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        margin-bottom: 2rem;
+      }
+
+      .cta p {
+        font-size: 1.0625rem;
+        color: rgba(255, 255, 255, 0.4);
+        max-width: 480px;
+        margin: 0 auto 3rem;
+        line-height: 1.7;
+      }
+
+      .cta-email {
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 1rem 3rem;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+      .cta-email:hover { background: #fff; color: #000; }
+
+      /* ─── Footer ─── */
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 2.5rem 0;
+      }
+
+      footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-brand {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .footer-sep { color: rgba(255, 255, 255, 0.1); }
+
+      .footer-partner, footer .copyright {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* ─── Responsive ─── */
+      @media (max-width: 768px) {
+        .container { padding: 0 1.5rem; }
+        .value-grid { grid-template-columns: 1fr; }
+        .services-grid { grid-template-columns: 1fr; }
+        .partnership-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        nav { display: none; }
+        footer .container { flex-direction: column; gap: 1rem; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#" class="logo">Vertonet</a>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#partnership">Partnership</a>
+          <a href="#market">Market</a>
+          <a href="#contact" class="btn-get-started">Get Started</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-label">Official Cognition Partner &mdash; Australia &amp; New Zealand</p>
+      <h1 class="display">AI Software<br />Engineering for<br />Australian Teams</h1>
+      <p class="hero-sub">
+        Vertonet helps enterprises adopt Devin &mdash; the world's first AI software engineer &mdash;
+        so your team ships faster, scales further, and stays ahead.
+      </p>
+      <a href="#contact" class="hero-cta">Book a Consultation</a>
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- Why Vertonet -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Why Vertonet</p>
+        <h2 class="section-title display">Your Engineering<br />Team, Supercharged</h2>
+        <p class="section-body">
+          AI software engineering gives your developers superpowers. Devin works alongside your team
+          as a tireless collaborator, handling the work your engineers shouldn't have to.
+        </p>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-number">01</div>
+            <h3>Ship Faster</h3>
+            <p>
+              Devin handles migrations, boilerplate, bug fixes, and refactors autonomously &mdash;
+              freeing your senior engineers for architecture and product.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-number">02</div>
+            <h3>Scale Without Hiring</h3>
+            <p>
+              Expand engineering capacity without the 6-month recruiting cycle.
+              Devin is productive from day one.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-number">03</div>
+            <h3>Enterprise-Grade Security</h3>
+            <p>
+              SOC 2 Type II certified. Your code stays private. Meets Australian
+              data sovereignty requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <p class="section-label">Services</p>
+        <h2 class="section-title display">How We Help</h2>
+        <p class="section-body">
+          From initial pilot to full-scale rollout, Vertonet provides the local expertise
+          to make AI software engineering work for your organisation.
+        </p>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Pilot Program</h3>
+            <p>
+              A focused 4-week engagement. We identify high-value use cases,
+              onboard a small team, and deliver measurable results.
+            </p>
+            <ul class="service-list">
+              <li>Use case identification &amp; prioritisation</li>
+              <li>Team onboarding &amp; training</li>
+              <li>ROI measurement &amp; reporting</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Enterprise Rollout</h3>
+            <p>
+              Scale Devin across your engineering organisation with change management,
+              workflow integration, and ongoing optimisation.
+            </p>
+            <ul class="service-list">
+              <li>CI/CD &amp; toolchain integration</li>
+              <li>Custom playbooks &amp; knowledge bases</li>
+              <li>Ongoing support &amp; optimisation</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Technical Consulting</h3>
+            <p>
+              Our engineers work alongside your team to maximise Devin's impact &mdash;
+              structuring repos, writing prompts, and building automations.
+            </p>
+            <ul class="service-list">
+              <li>Codebase readiness assessment</li>
+              <li>Workflow automation design</li>
+              <li>Best-practice knowledge transfer</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>Managed AI Engineering</h3>
+            <p>
+              Let Vertonet run Devin for you. We manage sessions, review output, and deliver
+              completed work &mdash; ideal for teams not yet ready to self-serve.
+            </p>
+            <ul class="service-list">
+              <li>Dedicated Vertonet engineers</li>
+              <li>Quality-assured PR delivery</li>
+              <li>AEST business hours support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnership -->
+    <section id="partnership" class="section">
+      <div class="container">
+        <p class="section-label">Partnership</p>
+        <h2 class="section-title display">Powered by<br />Cognition</h2>
+        <p class="section-body">
+          Cognition is the maker of Devin &mdash; the world's first fully autonomous AI software
+          engineer. As an official partner, Vertonet brings their technology and
+          direct support to Australia and New Zealand.
+        </p>
+        <div class="partnership-layout">
+          <ul class="partnership-features">
+            <li>Direct access to Cognition's engineering team</li>
+            <li>Priority access to new features and capabilities</li>
+            <li>Local billing in AUD with GST-compliant invoices</li>
+            <li>Enterprise agreements tailored to Australian procurement</li>
+          </ul>
+          <div class="devin-card">
+            <p class="devin-card-label">Built by Cognition</p>
+            <h3>Devin</h3>
+            <p class="subtitle">The world's first AI software engineer</p>
+            <p>
+              Devin plans, writes, debugs, and deploys code end-to-end. It works within
+              your existing codebase, follows your team's conventions, and opens PRs
+              ready for review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market -->
+    <section id="market" class="section">
+      <div class="container">
+        <p class="section-label">Market</p>
+        <h2 class="section-title display">Built for<br />Australia</h2>
+        <p class="section-body">
+          Australian enterprises have unique requirements. Vertonet understands them.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">AEST</div>
+            <div class="stat-label">Local support during<br />Australian business hours</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">AUD</div>
+            <div class="stat-label">Local billing with<br />GST-compliant invoicing</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">SOC 2</div>
+            <div class="stat-label">Enterprise security for<br />Australian compliance</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">On-Site</div>
+            <div class="stat-label">Workshops and<br />face-to-face engagement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta">
+      <div class="container">
+        <h2 class="display">Ready to Transform<br />Your Engineering Team?</h2>
+        <p>
+          Start with a conversation. We'll assess your needs and show you
+          what Devin can do for your codebase and workflows.
+        </p>
+        <a href="mailto:hello@vertonet.com.au" class="cta-email">hello@vertonet.com.au</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          <span class="footer-brand">Vertonet</span>
+          <span class="footer-sep">|</span>
+          <span class="footer-partner">Official Cognition Partner</span>
+        </div>
+        <p class="copyright">&copy; 2025 Vertonet Pty Ltd. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
